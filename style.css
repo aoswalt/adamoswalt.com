@@ -28,11 +28,15 @@ body {
 	min-height: 100%;
 	width: 100%;
 	
+	background: #31312F;
+	
 	display: flex;
 	flex-flow: column;
 }
 
 header {
+	background: white;
+	
 	display: flex;
 	justify-content: space-around;
 }
@@ -49,7 +53,7 @@ header {
 }
 
 #nav-links li:not(:last-of-type) {
-	border-right: 2px solid #66666C;
+	border-right: 2px solid #31312F;
 }
 
 #nav-links a {
@@ -60,8 +64,6 @@ header {
 
 #content {
 	flex: 1;
-	
-	background: #36363A;
 	
 	display: flex;
 	flex-flow: column;
@@ -124,12 +126,14 @@ footer {
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
+	
+	background: white;
 }
 
 footer p {
 	margin: 5px 10px;
 	
-	color: #36363A;
+	color: #31312F;
 	font-size: 0.7em;
 	font-weight: bold;
 }
