@@ -1,22 +1,35 @@
 * {
-	box-sizing: content-box; /*border-box;*/
+	box-sizing: content-box;
 	padding: 0;
 	margin: 0;
 	font-family: Verdana, San-serif;
 }
 
-* {
-	border: 1px solid black;
+a {
+	text-decoration: none;
+	font-weight: 600;
+	color: #227099;
+}
+
+a:visited {
+	color: #227099;
+}
+
+a:hover {
+	color: #4499cc;
+}
+
+a:active {
+	color: #333338;
 }
 
 body {
 	position: absolute;
-	height: 100%;
+	min-height: 100%;
 	width: 100%;
+	
 	display: flex;
 	flex-flow: column;
-	justify-content: center;
-	align-items: stretch;
 }
 
 header {
@@ -31,20 +44,34 @@ header {
 
 #nav-links li {
 	display: inline-block;
+	
+	margin: 5px 0;
+}
+
+#nav-links li:not(:last-of-type) {
+	border-right: 2px solid #66666C;
 }
 
 #nav-links a {
 	display: block;
-	text-decoration: none;
-	padding: 8px 10px;
+	
+	padding: 3px 10px;
 }
 
 #content {
 	flex: 1;
 	
+	background: #36363A;
+	
 	display: flex;
 	flex-flow: column;
 	align-items: center;
+}
+
+#content h1 {
+	margin: 12px 0 0 0;
+	
+	color: white;
 }
 
 #entries {
@@ -53,7 +80,12 @@ header {
 
 .entry {
 	width: 700px;
-	margin: 20px 0;
+	margin: 15px 0 20px 0;
+	padding: 5px 10px 10px 10px;
+	
+	background: #ececec;
+	border-radius: 7px;
+	box-shadow: 6px 6px 2px 0 black;
 	
 	display: flex;
 	flex-flow: row wrap;
@@ -63,20 +95,41 @@ header {
 .entry h2 {
 	text-align: center;
 	flex: 1 100%;
+	margin: 5px 0;
+	
+	color: #252529;
 }
 
 .entry img {
-	margin: 0 5px;
+	margin: 0 7px 30px 0;
+	
+	border: 1px solid black;
 }
 
 .entry-info {
 	flex: 1;
 }
 
+.entry-info .links a {
+	margin: 0 8px;
+}
+
 .entry-description {
-	margin: 3px 0;
+	margin: 5px 0;
 }
 
 footer {
-	height: 40px;
+	height: 30px;
+	
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+footer p {
+	margin: 5px 10px;
+	
+	color: #36363A;
+	font-size: 0.7em;
+	font-weight: bold;
 }
