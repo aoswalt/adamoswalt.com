@@ -8,11 +8,11 @@
 a {
 	text-decoration: none;
 	font-weight: 600;
-	color: #227099;
+	color: #1C6A93;
 }
 
 a:visited {
-	color: #227099;
+	color: #1C6A93;
 }
 
 a:hover {
@@ -28,7 +28,7 @@ body {
 	min-height: 100%;
 	width: 100%;
 	
-	background: #31312F;
+	background: #313132;
 	
 	display: flex;
 	flex-flow: column;
@@ -53,7 +53,7 @@ header {
 }
 
 #nav-links li:not(:last-of-type) {
-	border-right: 2px solid #31312F;
+	border-right: 2px solid #313132;
 }
 
 #nav-links a {
@@ -133,7 +133,7 @@ footer {
 footer p {
 	margin: 5px 10px;
 	
-	color: #31312F;
+	color: #313132;
 	font-size: 0.7em;
 	font-weight: bold;
 }
