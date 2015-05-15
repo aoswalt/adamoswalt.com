@@ -112,8 +112,11 @@ header {
 	flex: 1;
 }
 
-.entry-info .links a {
+.entry-info .source {
 	margin: 0 8px;
+	
+	display: flex;
+	justify-content: space-between;
 }
 
 .entry-description {
