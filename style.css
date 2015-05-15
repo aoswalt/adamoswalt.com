@@ -97,15 +97,13 @@ header {
 .entry h2 {
 	text-align: center;
 	flex: 1 100%;
-	margin: 5px 0;
+	margin: 5px 0 10px 0;
 	
 	color: #252529;
 }
 
 .entry img {
 	margin: 0 7px 30px 0;
-	
-	border: 1px solid black;
 }
 
 .entry-info {
@@ -120,7 +118,7 @@ header {
 }
 
 .entry-description {
-	margin: 5px 0;
+	margin: 10px 0;
 }
 
 footer {
