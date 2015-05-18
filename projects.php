@@ -32,7 +32,8 @@
 		die('Connection failed: '.$conn->connect_error);
 	}
 	
-	$query_part = 'SELECT * FROM project_info WHERE repo_id LIKE ';
+	$info_query_part = 'SELECT * FROM project_info WHERE repo_id LIKE ';
+	$lang_query_part = 'SELECT * FROM languages WHERE repo_lang LIKE ';
 	
 	
 	$repos = array();
@@ -48,11 +49,11 @@
 		
 		// placeholder if entry not in database
 		$repo->title = $data->{'name'};
-		//$repo->image_file = $row['image_file'];
+		//$repo->image_file = $row['image_file'];	// shouldn't be needed at all
 		//$repo->thumb_file = $row['thumb_file'];
+		$repo->language = $data->{'language'};
 		
 		// base repo data
-		$repo->language = $data->{'language'};	//TODO map of more presentable language entries?
 		$repo->description = $data->{'description'};
 		$repo->source_url = $data->{'links'}->{'html'}->{'href'}.'/src';	// go directly to source code in bb without changing settings
 		$repo->repo_id = $data->{'uuid'};		// bb = uuid, gh = numeric
@@ -62,11 +63,18 @@
 		$commits = json_decode($commits_json);
 		$repo->last_commit = strtotime($commits->{'values'}[0]->{'date'});	// saved directly as time for sorting
 		
+		// get presentable language from db
+		$lang_query_result = $conn->query($lang_query_part.'"'.$repo->language.'"');
+		if($lang_query_result->num_rows > 0) {
+			$row = $lang_query_result->fetch_assoc();
+			$repo->language = $row['disp_lang'];
+		}
+		
 		// get data from sql db that is not stored with the repo
-		$query_result = $conn->query($query_part.'"'.$repo->repo_id.'"');
-		if($query_result->num_rows > 0) {
-			$row = $query_result->fetch_assoc();
-			$repo->title = $row['name'];		// github doesn't store a presentable name	//TODO fallback to $title = $repo->{'name'};
+		$info_query_result = $conn->query($info_query_part.'"'.$repo->repo_id.'"');
+		if($info_query_result->num_rows > 0) {
+			$row = $info_query_result->fetch_assoc();
+			$repo->title = $row['name'];		// github doesn't store a presentable name
 			$repo->image_file = $row['image_file'];
 			$repo->thumb_file = $row['thumb_file'];
 		}
