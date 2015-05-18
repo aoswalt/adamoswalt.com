@@ -46,6 +46,11 @@
 		$data = $bb_data->{'values'}[$i];
 		$repo = new RepoData();
 		
+		// placeholder if entry not in database
+		$repo->title = $data->{'name'};
+		//$repo->image_file = $row['image_file'];
+		//$repo->thumb_file = $row['thumb_file'];
+		
 		// base repo data
 		$repo->language = $data->{'language'};	//TODO map of more presentable language entries?
 		$repo->description = $data->{'description'};
@@ -59,13 +64,17 @@
 		
 		// get data from sql db that is not stored with the repo
 		$query_result = $conn->query($query_part.'"'.$repo->repo_id.'"');
-		$row = $query_result->fetch_assoc();
-		$repo->title = $row['name'];		// github doesn't store a presentable name	//TODO fallback to $title = $repo->{'name'};
-		$repo->image_file = $row['image_file'];
-		$repo->thumb_file = $row['thumb_file'];
+		if($query_result->num_rows > 0) {
+			$row = $query_result->fetch_assoc();
+			$repo->title = $row['name'];		// github doesn't store a presentable name	//TODO fallback to $title = $repo->{'name'};
+			$repo->image_file = $row['image_file'];
+			$repo->thumb_file = $row['thumb_file'];
+		}
 		
 		array_push($repos, $repo);
 	}
+	
+	//TODO add pulling from Github
 	
 	$conn->close();
 	
