@@ -35,6 +35,7 @@
 	$info_query_part = 'SELECT * FROM project_info WHERE repo_id LIKE ';
 	$lang_query_part = 'SELECT * FROM languages WHERE repo_lang LIKE ';
 	
+	//TODO change to github only or direct from database. Bibucket is inconsistent at having the data available
 	
 	$repos = array();
 	
@@ -74,7 +75,7 @@
 		$info_query_result = $conn->query($info_query_part.'"'.$repo->repo_id.'"');
 		if($info_query_result->num_rows > 0) {
 			$row = $info_query_result->fetch_assoc();
-			$repo->title = $row['name'];		// github doesn't store a presentable name
+			$repo->title = $row['name'];		// gh doesn't store a presentable name, and bb's drives the repo address
 			$repo->image_file = $row['image_file'];
 			$repo->thumb_file = $row['thumb_file'];
 		}
@@ -87,6 +88,8 @@
 	$conn->close();
 	
 	usort($repos, array("RepoData", "compare_dates_reverse"));		// most recent first
+	
+	//TODO pagination
 	
 	for($i = 0; $i != count($repos); ++$i) {
 		//TODO add a message if nothing to display
