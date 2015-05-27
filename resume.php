@@ -6,7 +6,7 @@
 		<meta charset="utf-8" />
 		<meta name="author" content="Adam Oswalt" />
 		<meta name="description" content="Adam Oswalt's Portfolio" />
-		<meta name="keywords" content="adam, oswalt, anger, games, portolio" />
+		<meta name="keywords" content="adam, oswalt, portfolio, anger, games" />
 		
 		<link rel="stylesheet" href="style.css" />
 	</head>
@@ -16,7 +16,7 @@
 		<section id="content">
 			<h1>Résumé</h1>
 			
-			<div id="text-content">
+			<div class="text-content">
 				<div class="center-text"><a class="pdf-link" href="./adam_oswalt-resume.pdf" target="_blank">View PDF</a></div>
 				
 				<h2>Education</h2>
@@ -30,12 +30,12 @@
 				<p>Basic knowledge of Bash, Python</p>
 				
 				<h2>Projects</h2>
-				<p><b>Lettering Automation</b> – Automation of the creation of artwork through templates based on order details</p>
-				<p><b>Reporting Tool</b> – A tool to easily get order information and manage custom reports</p>
-				<p><b>Particle System</b> – A simple particle system influenced by gravity built using only native Java libraries</p>
-				<p><b>Path Builder</b> – A configurable program to get file paths from inconsistent file structure based on order details</p>
-				<p><b>Automated Exporter</b> – Using CorelDraw VBA, automated the processing and exporting of inconsistent files</p>
-				<p><b>Account Database</b> – Built Access database to fit into office workflow and provide aid through automation</p>
+				<p class="outdent"><b>Lettering Automation</b> – Automation of the creation of artwork through templates based on order details</p>
+				<p class="outdent"><b>Reporting Tool</b> – A tool to easily get order information and manage custom reports</p>
+				<p class="outdent"><b>Particle System</b> – A simple particle system influenced by gravity built using only native Java libraries</p>
+				<p class="outdent"><b>Path Builder</b> – A configurable program to get file paths from inconsistent file structure based on order details</p>
+				<p class="outdent"><b>Automated Exporter</b> – Using CorelDraw VBA, automated the processing and exporting of inconsistent files</p>
+				<p class="outdent"><b>Account Database</b> – Built Access database to fit into office workflow and provide aid through automation</p>
 				
 				<h2>Technical Skills</h2>
 				<p>Proficient with Windows</p>

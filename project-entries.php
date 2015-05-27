@@ -20,6 +20,7 @@
 		}
 	}
 	
+	//TODO move info to external file and keep untracked
 	$sql_server = 'localhost';
 	$sql_username = 'root';
 	$sql_password = 'root';

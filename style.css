@@ -139,7 +139,7 @@ footer p {
 	font-weight: bold;
 }
 
-#text-content {
+.text-content {
 	width: 700px;
 	margin: 15px 0 20px 0;
 	padding: 20px;
@@ -149,7 +149,7 @@ footer p {
 	box-shadow: 6px 6px 2px 0 black;
 }
 
-#text-content * {
+.text-content * {
 	padding-top: 2px;
 	padding-bottom: 2px;
 }
@@ -159,25 +159,34 @@ footer p {
 }
 
 .pdf-link {
-	font-size: 1.5em;
+	font-size: 1.4em;
 }
 
-#text-content p {
+.indent {
+	text-indent: 1em;
+}
+
+.outdent {
 	text-indent: -1em;
 	padding-left: 1em;
 }
 
-#text-content h2 {
-	font-size: 1.3em;
-	padding: 14px 0 3px 10px;
+.text-content h2 {
+	font-size: 1.4em;
+	padding: 0 0 3px 10px;
 }
 
-#text-content h3 {
+.text-content h2:not(:first-of-type) {
+	padding-top: 18px;
+	/*border-top: 2px solid black;*/
+}
+
+.text-content h3 {
 	font-size: 1.1em;
 	margin-top: 5px;
 }
 
-#text-content h4 {
+.text-content h4 {
 	font-size: 1em;
 	font-weight: 500;
 	padding-left: 5px;
@@ -189,6 +198,6 @@ footer p {
 	/*padding-right: 3em;*/
 }
 
-#text-content ul {
+.text-content ul {
 	padding-left: 22px;
 }

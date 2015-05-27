@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Adam Oswalt - Projects</title>
+		<title>Adam Oswalt - Contact</title>
 		
 		<meta charset="utf-8" />
 		<meta name="author" content="Adam Oswalt" />
@@ -14,11 +14,11 @@
 		<?php include 'header.php' ?>
 		
 		<section id="content">
-			<h1>Projects</h1>
+			<h1>Contact</h1>
 			
-			<ul id="entries">
-				<?php include 'project-entries.php' ?>
-			</ul>
+			<div class="text-content">
+					
+			</div>
 		</section>
 		
 		<?php include 'footer.php' ?>
