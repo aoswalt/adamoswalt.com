@@ -1,109 +1,33 @@
 <?php
-	class RepoData {
-		public $title;
-		public $language;
-		public $description;
-		public $source_url;
-		public $last_commit;
-		public $image_file;
-		public $thumb_file;
-		public $repo_id;
-		
-		static function compare_dates_reverse($a, $b) {
-			if($a->last_commit > $b->last_commit) {
-				return -1;
-			} else if($a->last_commit < $b->last_commit) {
-				return 1;
-			} else {
-				return 0;
-			}
-		}
-	}
-	
-	//TODO move info to external file and keep untracked
-	$sql_server = 'localhost';
-	$sql_username = 'root';
-	$sql_password = 'root';
-	$sql_dbname = 'portfolio';
-	
+	include('sql_connection_info.php');
 	$conn = new mysqli($sql_server, $sql_username, $sql_password, $sql_dbname);
 	
 	if($conn->connect_error) {
-		//TODO proper error handling for page to still load
+		//TODO proper error message
 		die('Connection failed: '.$conn->connect_error);
 	}
 	
-	$info_query_part = 'SELECT * FROM project_info WHERE repo_id LIKE ';
-	$lang_query_part = 'SELECT * FROM languages WHERE repo_lang LIKE ';
+	$query = 'SELECT * FROM projects WHERE hidden = 0 ORDER BY last_commit DESC';
+	$query_result = $conn->query($query);
 	
-	//TODO change to github only or direct from database. Bibucket is inconsistent at having the data available
-	
-	$repos = array();
-	
-	// Bitbucket repos
-	$public_bb_repos = file_get_contents('https://api.bitbucket.org/2.0/repositories/aoswalt');
-	$bb_data = json_decode($public_bb_repos);
-	
-	//TODO add a message if no bb repos found
-	for($i = 0; $i != count($bb_data->{'values'}); ++$i) {
-		$data = $bb_data->{'values'}[$i];
-		$repo = new RepoData();
-		
-		// placeholder if entry not in database
-		$repo->title = $data->{'name'};
-		//$repo->image_file = $row['image_file'];	// shouldn't be needed at all
-		//$repo->thumb_file = $row['thumb_file'];
-		$repo->language = $data->{'language'};
-		
-		// base repo data
-		$repo->description = $data->{'description'};
-		$repo->source_url = $data->{'links'}->{'html'}->{'href'}.'/src';	// go directly to source code in bb without changing settings
-		$repo->repo_id = $data->{'uuid'};		// bb = uuid, gh = numeric
-		
-		// get last commit date from commits page 
-		$commits_json = file_get_contents('https://api.bitbucket.org/2.0/repositories/aoswalt/'.$repo->repo_id.'/commits');
-		$commits = json_decode($commits_json);
-		$repo->last_commit = strtotime($commits->{'values'}[0]->{'date'});	// saved directly as time for sorting
-		
-		// get presentable language from db
-		$lang_query_result = $conn->query($lang_query_part.'"'.$repo->language.'"');
-		if($lang_query_result->num_rows > 0) {
-			$row = $lang_query_result->fetch_assoc();
-			$repo->language = $row['disp_lang'];
-		}
-		
-		// get data from sql db that is not stored with the repo
-		$info_query_result = $conn->query($info_query_part.'"'.$repo->repo_id.'"');
-		if($info_query_result->num_rows > 0) {
-			$row = $info_query_result->fetch_assoc();
-			$repo->title = $row['name'];		// gh doesn't store a presentable name, and bb's drives the repo address
-			$repo->image_file = $row['image_file'];
-			$repo->thumb_file = $row['thumb_file'];
-		}
-		
-		array_push($repos, $repo);
+	if($query_result->num_rows == 0) {
+		//TODO proper error message
+		die('No entries found');
 	}
 	
-	//TODO add pulling from Github
-	
-	$conn->close();
-	
-	usort($repos, array("RepoData", "compare_dates_reverse"));		// most recent first
-	
-	//TODO pagination
-	
-	for($i = 0; $i != count($repos); ++$i) {
-		//TODO add a message if nothing to display
+	for($i = 0; $i != $query_result->num_rows; ++$i) {
+		$row = $query_result->fetch_assoc();
+		
 		echo('
 			<li class="entry">
-				<h2>'.$repos[$i]->title.'</h2>
-				<a href="'.$repos[$i]->image_file.'" target="_blank"><img src="'.$repos[$i]->thumb_file.'" width="250px" height="150px" /></a>
+				<h2>'.$row['title'].'</h2>
+				<a href="'.$row['image_file'].'" target="_blank"><img src="'.$row['thumb_file'].'" width="250px" height="150px" /></a>
 				<div class="entry-info">
-					<p><b>Language: </b>'.$repos[$i]->language.'</p>
-					<p class="entry-description">'.$repos[$i]->description.'</p>
-					<p class="source"><a href="'.$repos[$i]->source_url.'">Source Code</a><span>Last commit: '.date('Y-m-d', $repos[$i]->last_commit).'</span></p>
+					<p><b>Language: </b>'.$row['language'].'</p>
+					<p class="entry-description">'.$row['description'].'</p>
+					<p class="source"><a href="'.$row['source_url'].'">Source Code</a><span>Last commit: '.$row['last_commit'].'</span></p>
 				</div>
 			</li>
 			');
 	}
-	?>
+?>

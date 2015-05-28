@@ -17,7 +17,7 @@
 			<h1>Contact</h1>
 			
 			<div class="text-content">
-					
+				<p>Email: <a href="mailto:email@adamoswalt.com">email@adamoswalt.com</a></p>
 			</div>
 		</section>
 		
