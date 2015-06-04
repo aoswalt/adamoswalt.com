@@ -1,18 +1,18 @@
 <?php
+	//TODO(adam): exception handling
+	
 	include('sql_connection_info.php');
 	$conn = new mysqli($sql_server, $sql_username, $sql_password, $sql_dbname);
 	
 	if($conn->connect_error) {
-		//TODO proper error message
-		die('Connection failed: '.$conn->connect_error);
+		throw new RuntimeException('Connection failed: '.$conn->connect_error);
 	}
 	
 	$query = 'SELECT * FROM projects WHERE hidden = 0 ORDER BY last_commit DESC';
 	$query_result = $conn->query($query);
 	
 	if($query_result->num_rows == 0) {
-		//TODO proper error message
-		die('No entries found');
+		throw new RuntimeException('No entries found');
 	}
 	
 	for($i = 0; $i != $query_result->num_rows; ++$i) {
@@ -30,4 +30,6 @@
 			</li>
 			');
 	}
+	
+	$conn->close();
 ?>

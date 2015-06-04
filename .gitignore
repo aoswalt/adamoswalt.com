@@ -1,2 +1,3 @@
 # do not track sql connection info for security
 sql_connection_info.php
+secret.php
