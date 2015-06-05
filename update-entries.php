@@ -16,7 +16,7 @@
 	
 	
 	$payload = json_decode($raw_data);
-	$last_commit_date = date('Y-m-d', strtotime($payload->{'commits'}[0]->{'timestamp'}));
+	$last_commit_date = date('Y-m-d', strtotime(end($payload->{'commits'})->{'timestamp'}));
 	$repo_id = $payload->{'repository'}->{'id'};
 	$update_query = 'UPDATE projects SET last_commit = "'.$last_commit_date.'" WHERE repo_id LIKE "'.$repo_id.'"';
 	
