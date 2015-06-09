@@ -26,7 +26,7 @@
 				
 				<h2>Programming</h2>
 				<p>Proficient with C#, SQL, VBA, Java</p>
-				<p>Familiar with C/C++, Regular Expressions, HTML/CSS, PHP, JavaScript</p>
+				<p>Familiar with C/C++, Regular Expressions, HTML/CSS, PHP, JavaScript, Git</p>
 				<p>Basic knowledge of Bash, Python</p>
 				
 				<h2>Projects</h2>
