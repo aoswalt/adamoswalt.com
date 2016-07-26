@@ -1,0 +1,31 @@
+{
+  "name": "portfolio-web-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp build",
+    "postinstall": "bower install",
+    "serve": "http-server public",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aoswalt/portfolio-web-site.git"
+  },
+  "keywords": [],
+  "author": "Adam Oswalt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aoswalt/portfolio-web-site/issues"
+  },
+  "homepage": "https://github.com/aoswalt/portfolio-web-site#readme",
+  "devDependencies": {
+    "del": "^2.2.1",
+    "gulp": "^3.9.1",
+    "gulp-connect": "^4.2.0",
+    "gulp-sass": "^2.3.2",
+    "http-server": "^0.9.0",
+    "run-sequence": "^1.2.2"
+  }
+}

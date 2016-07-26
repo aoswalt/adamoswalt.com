@@ -1,0 +1,23 @@
+{
+  "name": "portfolio-web-site",
+  "homepage": "https://github.com/aoswalt/portfolio-web-site",
+  "authors": [
+    "Adam Oswalt <adam.oswalt@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-bootstrap": "^2.0.0",
+    "angular-route": "^1.5.8",
+    "bootstrap": "^3.3.7"
+  }
+}
