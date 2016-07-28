@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "gulp build",
+    "dev": "gulp watch",
     "postinstall": "bower install",
     "serve": "http-server public",
     "test": "echo \"Error: no test specified\" && exit 1"
