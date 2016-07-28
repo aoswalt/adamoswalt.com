@@ -56,19 +56,23 @@ gulp.task('watch', () =>
     [
       'static:watch',
       'sass:watch',
-      'livereload:watch',
       'connect'
     ]
   ))
 
 gulp.task('static:watch', () =>
-  gulp.watch(staticPath, ['static:copy']))
+  gulp.watch(staticPath, () =>
+    runSequence(
+      'static:copy',
+      'livereload'
+    )))
 
 gulp.task('sass:watch', () =>
-  gulp.watch(allSassPath, ['sass:compile']))
-
-gulp.task('livereload:watch', () =>
-  gulp.watch(allPublicPath, ['livereload']))
+  gulp.watch(allSassPath, () =>
+  runSequence(
+    'sass:compile',
+    'livereload'
+  )))
 
 
 // BUILDERS
