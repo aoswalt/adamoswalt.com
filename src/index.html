@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
   <head>
     <meta charset="utf-8">
     <title>Adam Oswalt - Portfolio</title>
-    <link rel="stylesheet" href="lib/bootstrap/bootstrap.min.css" charset="utf-8">
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" charset="utf-8">
     <link rel="stylesheet" href="styles/main.css" charset="utf-8">
   </head>
   <body>
-    <h1>Portfolio</h1>
+    <div ng-controller="homeCtrl as home">
+      <h1>{{home.heading}}</h1>
+    </div>
 
     <script src="lib/angular/angular.min.js" charset="utf-8"></script>
     <script src="lib/angular-bootstrap/ui-bootstrap-tpls.min.js" charset="utf-8"></script>
     <script src="lib/angular-route/angular-route.min.js" charset="utf-8"></script>
+    <script src="app/main.js" charset="utf-8"></script>
   </body>
 </html>
