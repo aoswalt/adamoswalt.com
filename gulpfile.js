@@ -8,7 +8,7 @@ const sass = require('gulp-sass')
 
 const sourcePath = './src'
 const publicPath = './public'
-const sassRelativePath = '/style'
+const sassRelativePath = '/styles'
 
 const allSourcePath = `${sourcePath}/**/*`
 const allPublicPath = `${publicPath}/**/*`
