@@ -3,11 +3,6 @@ angular.module('app', ['ngRoute'])
     $routeProvider
       .otherwise('/'))
 
-  .controller('homeCtrl', function() {
-    const home = this
-    home.heading = 'Home Title'
-  })
-
   .factory('projectsFactory', () => {
     //TODO(adam): load from JSON
     projects = [

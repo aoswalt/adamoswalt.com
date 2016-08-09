@@ -7,9 +7,8 @@
     <link rel="stylesheet" href="styles/main.css" charset="utf-8">
   </head>
   <body>
-    <div ng-controller="homeCtrl as home">
-      <h1>{{home.heading}}</h1>
-    </div>
+    <div ng-include="'app/nav.html'"></div>
+    <div ng-view=""></div>
 
     <script src="lib/angular/angular.min.js" charset="utf-8"></script>
     <script src="lib/angular-bootstrap/ui-bootstrap-tpls.min.js" charset="utf-8"></script>
