@@ -4,6 +4,35 @@ angular.module('app', ['ngRoute'])
       .otherwise('/'))
 
   .controller('homeCtrl', function() {
-    const home = this;
+    const home = this
     home.heading = 'Home Title'
+  })
+
+  .factory('dataFactory', () => {
+    //TODO(adam): load from JSON
+    projects = [
+      {
+        title: '',
+        image: '',
+        thumb: '',
+        description: '',
+        source: '',
+        live: ''
+      }
+    ]
+
+    about = {
+      short: '',
+      long: ''
+    }
+
+    resume = {
+
+    }
+
+    return {
+      projects,
+      about,
+      resume
+    }
   })
