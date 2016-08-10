@@ -1,7 +1,20 @@
 angular.module('app', ['ngRoute'])
   .config($routeProvider =>
     $routeProvider
-      .otherwise('/'))
+      .when('/about', {
+        templateUrl: 'app/about.html'
+      })
+      .when('/projects', {
+        templateUrl: 'app/projects.html'
+      })
+      .when('/resume', {
+        templateUrl: 'app/resume.html'
+      })
+      .when('/contact', {
+        templateUrl: 'app/contact.html'
+      })
+      // .otherwise('/'))
+      .otherwise('/about'))
 
   .factory('projectsFactory', () => {
     //TODO(adam): load from JSON

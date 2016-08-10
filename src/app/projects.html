@@ -1,0 +1,16 @@
+<h1>Projects</h1>
+<div ng-repeate="">
+  <h2>{{project.title}}</h2>
+  <div>
+    <img src="{{project.thumb}}" />
+    <div>
+      <p><span class="label">Technologies</span>{{project.technologies}}</p>
+      <p>{{project.description}}</p>
+      <p>
+        <span><a href="{{project.source}}">Source Code</a></span>
+        <span><a href="{{project.live}}">Live</a></span>
+        <span>Last Update: {{project.lastUpdate}}</span>
+      </p>
+    </div>
+  </div>
+</div>
