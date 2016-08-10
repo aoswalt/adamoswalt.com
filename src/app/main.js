@@ -5,7 +5,9 @@ angular.module('app', ['ngRoute'])
         templateUrl: 'app/about.html'
       })
       .when('/projects', {
-        templateUrl: 'app/projects.html'
+        templateUrl: 'app/projects.html',
+        controller: 'projectsCtrl',
+        controllerAs: 'projects'
       })
       .when('/resume', {
         templateUrl: 'app/resume.html'
@@ -15,6 +17,11 @@ angular.module('app', ['ngRoute'])
       })
       // .otherwise('/'))
       .otherwise('/about'))
+
+  .controller('projectsCtrl', function(projectsFactory) {
+    const projects = this
+    projects.list = projectsFactory.projects
+  })
 
   .factory('projectsFactory', () => {
     //TODO(adam): load from JSON
