@@ -1,16 +1,22 @@
-<h1>Projects</h1>
-<div ng-repeat="project in projects.list">
-  <h2>{{project.title}}</h2>
-  <div>
-    <img src="thumbs/{{project.thumb}}" />
-    <div>
-      <p><span class="label">Technologies</span>{{project.technologies}}</p>
-      <p>{{project.description}}</p>
-      <p>
-        <span><a href="{{project.sourceUrl}}">Source Code</a></span>
-        <span><a href="{{project.liveUrl}}">Live</a></span>
-        <span>Last Update: {{project.lastUpdate}}</span>
-      </p>
+<div class="container">
+  <h1>Projects</h1>
+  <div class="panel panel-default" ng-repeat="project in projects.list">
+    <div class="panel-heading">
+      <h2>{{project.title}}</h2>
+    </div>
+    <div class="panel-body media">
+      <div class="media-left">
+        <img class="media-object" src="thumbs/{{project.thumb}}" width="100px" height="100px"/>
+      </div>
+      <div class="media-body">
+        <p><span class="tech-label">Technologies</span>{{project.technologies}}</p>
+        <p>{{project.description}}</p>
+        <p>
+          <span><a href="{{project.sourceUrl}}">Source Code</a></span>
+          <span><a href="{{project.liveUrl}}">Live</a></span>
+          <span class="pull-right">Last Update: {{project.lastUpdate}}</span>
+        </p>
+      </div>
     </div>
   </div>
 </div>
