@@ -27,22 +27,31 @@ angular.module('app', ['ngRoute'])
     //TODO(adam): load from JSON
     projects = [
       {
+        title: 'U-Shirt',
+        image: 'u-shirt.png',
+        description: 'A vector-based t-shirt designer focused on shareability.',
+        technologies: 'HTML/CSS, JavaScript, AngularJS, Bootstrap, SASS',
+        sourceUrl: 'https://github.com/aoswalt/u-shirt',
+        liveUrl: 'https://aoswalt.github.io/u-shirt',
+        lastUpdate: new Date(2016, 07, 25)
+      },
+      {
         title: 'Portfolio Web Site',
         image: 'portfolio_site.png',
-        description: 'A web site to use as my online portfolio which includes projects I have worked on, my resume, and my contact detail. Data for the projects is pulled from repositories where the code is stored, and it is joined with extra information from a MySQL database.',
+        description: 'A web site to use as my online portfolio which includes projects I have worked on, my resume, and my contact detail.',
         technologies: 'HTML/CSS, JavaScript, AngularJS, Bootstrap, SASS',
-        sourceUrl: 'https://bitbucket.org/aoswalt/portfolio-web-site/src',
+        sourceUrl: 'https://github.com/aoswalt/portfolio-web-site',
         liveUrl: 'http://www.adamoswalt.com',
-        lastUpdate: new Date(2015, 05, 28)
+        lastUpdate: new Date(2016, 08, 15)
       },
       {
         title: 'Lettering Automation',
         image: 'lettering_automation.png',
         description: 'This program drives a lettering automation project. It relies on the VBA macros stored in the lettering templates to produce the artwork. It is also dependent on a specific folder structure, but that structure is configurable as needed.',
         technologies: 'C#, SQL, VBA',
-        sourceUrl: 'https://bitbucket.org/aoswalt/letteringautomation/src',
+        sourceUrl: 'https://github.com/aoswalt/lettering-automation',
         liveUrl: '',
-        lastUpdate: new Date(2015, 05, 27)
+        lastUpdate: new Date(2016, 07, 27)
       },
       {
         title: 'Reporting Tool',
@@ -51,7 +60,7 @@ angular.module('app', ['ngRoute'])
         technologies: 'C#, SQL',
         sourceUrl: 'https://bitbucket.org/aoswalt/varsityreportingtool/src',
         liveUrl: '',
-        lastUpdate: new Date(2015, 05, 15)
+        lastUpdate: new Date(2016, 04, 23)
       },
       {
         title: 'File Path Builder',
