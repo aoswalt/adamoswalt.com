@@ -1,0 +1,27 @@
+.projects {
+  h2 {
+    margin-left: 2rem;
+  }
+
+  .panel-body {
+    font-size: 1.75rem;
+  }
+
+  .tech-label {
+    font-weight: bold;
+
+    &::after {
+      content: ': ';
+      margin-right: .75rem;
+    }
+  }
+
+  .source {
+    margin-right: 1.25rem;
+  }
+
+  .source,
+  .live {
+    font-weight: bold;
+  }
+}

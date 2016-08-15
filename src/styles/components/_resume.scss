@@ -1,9 +1,27 @@
-svg {
-  fill: $link-color;
-}
-
-.doc-svg {
+.resume {
   svg {
-    height: 2rem;
+    fill: $link-color;
+  }
+
+  .doc-svg {
+    svg {
+      height: 2rem;
+    }
+  }
+
+  .exp {
+    &:not(:last-of-type) {
+      border-bottom: 1px solid $body-bg-color;
+      margin-bottom: 3rem;
+      padding-bottom: 1rem;
+    }
+  }
+
+  .exp-title {
+    font-weight: bold;
+  }
+
+  .exp-location {
+    margin-left: 6rem;
   }
 }

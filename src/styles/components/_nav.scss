@@ -1,10 +1,13 @@
 .navbar {
-  border-radius: 0
+  border-radius: 0;
+  box-shadow: 0 .8rem .8rem $panel-shadow-color;
 }
 
 .nav {
-  font-size: 2rem;
-  font-weight: bold;
+  a {
+    font-size: 2rem;
+    font-weight: bold;
+  }
 }
 
 .nav-pills {

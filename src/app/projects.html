@@ -1,4 +1,4 @@
-<div class="container">
+<div class="projects container">
   <h1>Projects</h1>
   <div class="panel panel-default" ng-repeat="project in projects.list">
     <div class="panel-heading">
@@ -14,9 +14,9 @@
         <p><span class="tech-label">Technologies</span>{{project.technologies}}</p>
         <p>{{project.description}}</p>
         <p>
-          <span><a href="{{project.sourceUrl}}">Source Code</a></span>
-          <span><a href="{{project.liveUrl}}">Live</a></span>
-          <span class="pull-right">Last Update: {{project.lastUpdate}}</span>
+          <span class="source"><a href="{{project.sourceUrl}}">Source Code</a></span>
+          <span class="live" ng-show="project.liveUrl"><a href="{{project.liveUrl}}">Live</a></span>
+          <span class="pull-right">Last Update: {{project.lastUpdate | date:'yyyy/MM/dd'}}</span>
         </p>
       </div>
     </div>
