@@ -1,4 +1,4 @@
-angular.module('app', ['ngRoute'])
+angular.module('app', ['ngRoute', 'ui.bootstrap'])
   .config($routeProvider =>
     $routeProvider
       .when('/about', {
@@ -18,9 +18,14 @@ angular.module('app', ['ngRoute'])
       // .otherwise('/'))
       .otherwise('/about'))
 
-  .controller('projectsCtrl', function(projectsFactory) {
+  .controller('projectsCtrl', function(projectsFactory, $uibModal) {
     const projects = this
     projects.list = projectsFactory.projects
+
+    projects.openModal = (imageUrl) => $uibModal.open({
+      template: `<div class="image-modal modal-body"><img src="${imageUrl}" /></div>`,
+      size: 'lg'
+    })
   })
 
   .factory('projectsFactory', () => {

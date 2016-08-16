@@ -6,9 +6,11 @@
     </div>
     <div class="panel-body media">
       <div class="media-left">
-        <a href="images/{{project.image}}">
-          <img class="media-object" src="images/thumbs/{{project.image}}" width="250px" height="150px"/>
-        </a>
+        <img class="media-object"
+          src="images/thumbs/{{project.image}}"
+          width="250px"
+          height="150px"
+          ng-click="projects.openModal('images/' + project.image)"/>
       </div>
       <div class="media-body">
         <p><span class="tech-label">Technologies</span>{{project.technologies}}</p>
