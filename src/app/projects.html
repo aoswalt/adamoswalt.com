@@ -1,6 +1,6 @@
 <div class="projects container">
   <h1>Projects</h1>
-  <div class="panel panel-default" ng-repeat="project in projects.list">
+  <div class="panel panel-default" ng-repeat="project in projects.list | orderBy: project.lastUpdate">
     <div class="panel-heading">
       <h2>{{project.title}}</h2>
     </div>
