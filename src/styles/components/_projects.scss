@@ -26,6 +26,14 @@
   }
 }
 
+.thumb {
+  cursor: pointer;
+
+  &:hover {
+    border: 4px solid $link-color;
+  }
+}
+
 .image-modal {
   text-align: center;
 
