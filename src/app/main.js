@@ -63,7 +63,7 @@ angular.module('app', ['ngRoute', 'ui.bootstrap'])
         image: 'reporting_tool.png',
         description: 'A tool created for running reports on the AS400. It is designed to allow for quick and easy retrieval of order details without having to navigate the AS400 menus. The tool also supports the creation, saving, and loading of custom reports.',
         technologies: 'C#, SQL',
-        sourceUrl: 'https://bitbucket.org/aoswalt/varsityreportingtool/src',
+        sourceUrl: 'https://github.com/aoswalt/reporting-tool',
         liveUrl: '',
         lastUpdate: new Date(2016, 04, 23)
       },
@@ -72,7 +72,7 @@ angular.module('app', ['ngRoute', 'ui.bootstrap'])
         image: 'path_builder.png',
         description: 'A proof of concept tool to build a file path that corresponds to a given order. It was designed to be used on an already established and inconsistent file structure. Directory paths and trim patterns are read from config files to be able to be easily adjusted as needed.',
         technologies: 'Java',
-        sourceUrl: 'https://bitbucket.org/aoswalt/orderpathbuilder/src',
+        sourceUrl: 'https://github.com/aoswalt/order-path-builder',
         liveUrl: '',
         lastUpdate: new Date(2013, 05, 22)
       },
@@ -81,7 +81,7 @@ angular.module('app', ['ngRoute', 'ui.bootstrap'])
         image: 'particle_system.png',
         description: 'A simple particle system built with native Java libraries. Global gravity may be toggled, and gravity wells may be created to influence the particles. Walls may be placed to act as barriers. While using the demo, hold \'H\' to view the control options.',
         technologies: 'Java',
-        sourceUrl: 'https://bitbucket.org/aoswalt/tech_particlesystem/src',
+        sourceUrl: 'https://github.com/aoswalt/simple-particle-system',
         liveUrl: '',
         lastUpdate: new Date(2013, 04, 09)
       },
