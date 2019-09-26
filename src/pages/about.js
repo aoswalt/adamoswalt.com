@@ -20,7 +20,7 @@ export default function AboutPage() {
           </div>
           <div className='panel-body'>
             <img
-              alt='My Photo'
+              alt='My Headshot'
               className='headshot pull-left'
               src='images/me_fb.jpg'
             />
