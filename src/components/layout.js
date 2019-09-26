@@ -5,12 +5,35 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import React from 'react'
+import PropTypes from 'prop-types'
+import { graphql, useStaticQuery } from 'gatsby'
 
-import Header from "./header"
-import "./layout.css"
+import Header from './header'
+import './layout.css'
+
+function Nav() {
+  return (
+    <nav className='navbar navbar-default'>
+      <div className='container'>
+        <ul className='nav nav-pills'>
+          <li>
+            <a href='#/about'>About Me</a>
+          </li>
+          <li>
+            <a href='#/projects'>Projects</a>
+          </li>
+          <li>
+            <a href='#/resume'>Resume</a>
+          </li>
+          <li>
+            <a href='#/contact'>Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  )
+}
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -26,6 +49,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
+      <Nav />
       <div
         style={{
           margin: `0 auto`,
@@ -38,7 +62,7 @@ const Layout = ({ children }) => {
         <footer>
           © {new Date().getFullYear()}, Built with
           {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+          <a href='https://www.gatsbyjs.org'>Gatsby</a>
         </footer>
       </div>
     </>

@@ -1,0 +1,161 @@
+// variables
+$black: #000;
+
+$title-color: rgb(255, 255, 255);
+$body-bg-color: rgb(60, 63, 66);
+
+$panel-shadow-color: rgb(11, 11, 11);
+$panel-shadow: .8rem .8rem .8rem $panel-shadow-color;
+
+$link-color: rgb(100, 138, 235);
+
+// scaffolding
+body {
+  background: $body-bg-color;
+}
+
+h1 {
+  color: $title-color;
+  font-weight: bold;
+  position: relative;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: .25rem;
+}
+
+p,
+a {
+  font-size: 1.66rem;
+}
+
+.panel {
+  box-shadow: $panel-shadow;
+}
+
+.panel-heading {
+  padding: .5rem;
+}
+
+// nav
+.navbar {
+  border-radius: 0;
+  box-shadow: 0 .8rem .8rem $panel-shadow-color;
+}
+
+.nav {
+  a {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+}
+
+.nav-pills {
+  display: flex;
+  justify-content: center;
+}
+
+// about
+.headshot {
+  margin-bottom: 2rem;
+  margin-right: 2rem;
+  margin-top: 1rem;
+  max-height: 15rem;
+  max-width: 15rem;
+}
+
+// projects
+.projects {
+  h2 {
+    margin-left: 2rem;
+  }
+
+  .panel-body {
+    font-size: 1.75rem;
+  }
+
+  .tech-label {
+    font-weight: bold;
+
+    &::after {
+      content: ': ';
+      margin-right: .75rem;
+    }
+  }
+
+  .source {
+    margin-right: 1.25rem;
+  }
+
+  .source,
+  .live {
+    font-weight: bold;
+  }
+}
+
+.thumb {
+  cursor: pointer;
+
+  &:hover {
+    border: 4px solid $link-color;
+  }
+}
+
+.image-modal {
+  text-align: center;
+
+  img {
+    border: 2px solid $black;
+    max-height: 100%;
+    max-width: 100%;
+  }
+}
+
+// resume
+.resume {
+  svg {
+    fill: $link-color;
+  }
+
+  .doc-svg {
+    svg {
+      height: 2rem;
+    }
+  }
+
+  .exp {
+    &:not(:last-of-type) {
+      border-bottom: 1px solid $body-bg-color;
+      margin-bottom: 3rem;
+      padding-bottom: 1rem;
+    }
+  }
+
+  .exp-title {
+    font-weight: bold;
+  }
+
+  .exp-location {
+    margin-left: 6rem;
+  }
+
+  .project-title {
+    font-weight: bold;
+    margin-right: 2rem;
+  }
+
+  .skills-list {
+    li {
+      font-size: 1.75rem;
+    }
+  }
+}
+
+// contact
+.contact-label {
+  font-weight: bold;
+  margin-right: 1rem;
+}
