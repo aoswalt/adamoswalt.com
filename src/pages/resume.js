@@ -1,15 +1,50 @@
 import React from 'react'
 import Layout from '../components/layout'
+import { css } from '@emotion/core'
+import { useTheme } from 'emotion-theming'
 
 export default function ResumePage() {
+  const theme = useTheme()
+
+  const classes = {
+    docSvg: css`
+      & svg {
+        fill: ${theme.colors.link};
+        height: 2rem;
+      }
+    `,
+    experience: css`
+      &:not(:last-of-type) {
+        border-bottom: 1px solid ${theme.colors.bodyBackground};
+        margin-bottom: 3rem;
+        padding-bottom: 1rem;
+      }
+    `,
+    experienceTitle: css`
+      font-weight: bold;
+    `,
+    experienceLocation: css`
+      margin-left: 6rem;
+    `,
+    projectTitle: css`
+      font-weight: bold;
+      margin-right: 2rem;
+    `,
+    skills: css`
+      & li {
+        font-size: 1.75rem;
+      }
+    `,
+  }
+
   return (
     <Layout>
-      <div className='resume container'>
+      <div className='container'>
         <h1>
           Résumé
           <a href='adam_oswalt-resume.pdf'>
             <ng-include
-              class='doc-svg'
+              css={classes.docSvg}
               src="'images/document.svg'"
             />
           </a>
@@ -19,11 +54,11 @@ export default function ResumePage() {
             <h2>Experience</h2>
           </div>
           <div className='panel-body'>
-            <div className='exp'>
-              <h4 className='exp-title'>Apprentice Software Developer</h4>
+            <div css={classes.experience}>
+              <h4 css={classes.experienceTitle}>Apprentice Software Developer</h4>
               <p>
                 April 2016 – Present
-                <span className='exp-location'>
+                <span css={classes.experienceLocation}>
                   Nashville Software School, Nashville, TN
                 </span>
               </p>
@@ -51,13 +86,13 @@ export default function ResumePage() {
                 </li>
               </ul>
             </div>
-            <div className='exp'>
-              <h4 className='exp-title'>
+            <div css={classes.experience}>
+              <h4 css={classes.experienceTitle}>
                 Programmer / Project Manager of Programming
               </h4>
               <p>
                 January 2015 – Present
-                <span className='exp-location'>Varsity Spirit, Bartlett, TN</span>
+                <span css={classes.experienceLocation}>Varsity Spirit, Bartlett, TN</span>
               </p>
               <p>
                 Managing and designing new software and designs for productivity
@@ -75,11 +110,11 @@ export default function ResumePage() {
                 </li>
               </ul>
             </div>
-            <div className='exp'>
-              <h4 className='exp-title'>Senior Artist</h4>
+            <div css={classes.experience}>
+              <h4 css={classes.experienceTitle}>Senior Artist</h4>
               <p>
                 July 2012 – December 2014
-                <span className='exp-location'>Varsity Spirit, Bartlett, TN</span>
+                <span css={classes.experienceLocation}>Varsity Spirit, Bartlett, TN</span>
               </p>
               <p>
                 Lead production of artwork creation and find solutions to
@@ -99,11 +134,11 @@ export default function ResumePage() {
                 <li>Set up templates for new styles</li>
               </ul>
             </div>
-            <div className='exp'>
-              <h4 className='exp-title'>Customer Service Representative</h4>
+            <div css={classes.experience}>
+              <h4 css={classes.experienceTitle}>Customer Service Representative</h4>
               <p>
                 July 2011 – June 2012
-                <span className='exp-location'>Asentinel, Memphis, TN</span>
+                <span css={classes.experienceLocation}>Asentinel, Memphis, TN</span>
               </p>
               <p>Provide to support for users of managed application.</p>
               <ul>
@@ -117,11 +152,11 @@ export default function ResumePage() {
                 </li>
               </ul>
             </div>
-            <div className='exp'>
-              <h4 className='exp-title'>Graphic Artist</h4>
+            <div css={classes.experience}>
+              <h4 css={classes.experienceTitle}>Graphic Artist</h4>
               <p>
                 March 2009 – June 2011
-                <span className='exp-location'>Varsity Spirit, Bartlett, TN</span>
+                <span css={classes.experienceLocation}>Varsity Spirit, Bartlett, TN</span>
               </p>
               <p>
                 Develop custom uniform and lettering designs from customer
@@ -146,35 +181,35 @@ export default function ResumePage() {
           </div>
           <div className='panel-body'>
             <p>
-              <span className='project-title'>U-Shirt</span>A vector-based t-shirt
+              <span css={classes.projectTitle}>U-Shirt</span>A vector-based t-shirt
               designer web application focused on shareability
             </p>
             <p>
-              <span className='project-title'>Lettering Automation</span>
+              <span css={classes.projectTitle}>Lettering Automation</span>
               Automation of the creation of artwork through templates based on
               order details
             </p>
             <p>
-              <span className='project-title'>Reporting Tool</span>A tool to easily
+              <span css={classes.projectTitle}>Reporting Tool</span>A tool to easily
               get order information and manage custom reports
             </p>
             <p>
-              <span className='project-title'>Particle System</span>A simple
+              <span css={classes.projectTitle}>Particle System</span>A simple
               particle system influenced by gravity built using only native Java
               libraries
             </p>
             <p>
-              <span className='project-title'>Path Builder</span>A configurable
+              <span css={classes.projectTitle}>Path Builder</span>A configurable
               program to get file paths from inconsistent file structure based
               on order details
             </p>
             <p>
-              <span className='project-title'>Automated Exporter</span>
+              <span css={classes.projectTitle}>Automated Exporter</span>
               Using CorelDraw VBA, automated the processing and exporting of
               inconsistent files
             </p>
             <p>
-              <span className='project-title'>Account Database</span>
+              <span css={classes.projectTitle}>Account Database</span>
               Built Access database to fit into office workflow and provide aid
               through automation
             </p>
@@ -200,7 +235,7 @@ export default function ResumePage() {
             <h2>Technical Skills</h2>
           </div>
           <div className='panel-body'>
-            <ul className='skills-list'>
+            <ul css={classes.skills}>
               <li>Proficient with Windows</li>
               <li>Familiar with Linux</li>
               <li>Built multiple personal computers</li>
