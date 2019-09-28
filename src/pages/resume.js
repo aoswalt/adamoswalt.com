@@ -1,18 +1,30 @@
-import React from 'react'
-import Layout from '../components/layout'
-import { css } from '@emotion/core'
-import { useTheme } from 'emotion-theming'
+import React from "react"
+import Layout from "../components/layout"
+import { css } from "@emotion/core"
+import { useTheme } from "emotion-theming"
 
-export default function ResumePage() {
+function DocumentLink({ href }) {
+  const theme = useTheme()
+
+  return (
+    <a href={href}>
+      <ng-include
+        css={css`
+          & svg {
+            fill: ${theme.colors.link};
+            height: 2rem;
+          }
+        `}
+        src="images/document.svg"
+      />
+    </a>
+  )
+}
+
+function Experience({ children }) {
   const theme = useTheme()
 
   const classes = {
-    docSvg: css`
-      & svg {
-        fill: ${theme.colors.link};
-        height: 2rem;
-      }
-    `,
     experience: css`
       &:not(:last-of-type) {
         border-bottom: 1px solid ${theme.colors.bodyBackground};
@@ -20,6 +32,15 @@ export default function ResumePage() {
         padding-bottom: 1rem;
       }
     `,
+  }
+
+  return <div css={classes.experience}>{children}</div>
+}
+
+export default function ResumePage() {
+  const theme = useTheme()
+
+  const classes = {
     experienceTitle: css`
       font-weight: bold;
     `,
@@ -39,23 +60,20 @@ export default function ResumePage() {
 
   return (
     <Layout>
-      <div className='container'>
+      <div className="container">
         <h1>
           Résumé
-          <a href='adam_oswalt-resume.pdf'>
-            <ng-include
-              css={classes.docSvg}
-              src="'images/document.svg'"
-            />
-          </a>
+          <DocumentLink href="adam_oswalt-resume.pdf" />
         </h1>
-        <section className='panel panel-default'>
-          <div className='panel-heading'>
+        <section className="panel panel-default">
+          <div className="panel-heading">
             <h2>Experience</h2>
           </div>
-          <div className='panel-body'>
-            <div css={classes.experience}>
-              <h4 css={classes.experienceTitle}>Apprentice Software Developer</h4>
+          <div className="panel-body">
+            <Experience>
+              <h4 css={classes.experienceTitle}>
+                Apprentice Software Developer
+              </h4>
               <p>
                 April 2016 – Present
                 <span css={classes.experienceLocation}>
@@ -85,14 +103,16 @@ export default function ResumePage() {
                   framework
                 </li>
               </ul>
-            </div>
-            <div css={classes.experience}>
+            </Experience>
+            <Experience>
               <h4 css={classes.experienceTitle}>
                 Programmer / Project Manager of Programming
               </h4>
               <p>
                 January 2015 – Present
-                <span css={classes.experienceLocation}>Varsity Spirit, Bartlett, TN</span>
+                <span css={classes.experienceLocation}>
+                  Varsity Spirit, Bartlett, TN
+                </span>
               </p>
               <p>
                 Managing and designing new software and designs for productivity
@@ -109,12 +129,14 @@ export default function ResumePage() {
                   retrieval of order details and managing custom reports
                 </li>
               </ul>
-            </div>
-            <div css={classes.experience}>
+            </Experience>
+            <Experience>
               <h4 css={classes.experienceTitle}>Senior Artist</h4>
               <p>
                 July 2012 – December 2014
-                <span css={classes.experienceLocation}>Varsity Spirit, Bartlett, TN</span>
+                <span css={classes.experienceLocation}>
+                  Varsity Spirit, Bartlett, TN
+                </span>
               </p>
               <p>
                 Lead production of artwork creation and find solutions to
@@ -133,12 +155,16 @@ export default function ResumePage() {
                 <li>Developed new fonts from newly designed style alphabets</li>
                 <li>Set up templates for new styles</li>
               </ul>
-            </div>
-            <div css={classes.experience}>
-              <h4 css={classes.experienceTitle}>Customer Service Representative</h4>
+            </Experience>
+            <Experience>
+              <h4 css={classes.experienceTitle}>
+                Customer Service Representative
+              </h4>
               <p>
                 July 2011 – June 2012
-                <span css={classes.experienceLocation}>Asentinel, Memphis, TN</span>
+                <span css={classes.experienceLocation}>
+                  Asentinel, Memphis, TN
+                </span>
               </p>
               <p>Provide to support for users of managed application.</p>
               <ul>
@@ -151,12 +177,14 @@ export default function ResumePage() {
                   invoice balancing
                 </li>
               </ul>
-            </div>
-            <div css={classes.experience}>
+            </Experience>
+            <Experience>
               <h4 css={classes.experienceTitle}>Graphic Artist</h4>
               <p>
                 March 2009 – June 2011
-                <span css={classes.experienceLocation}>Varsity Spirit, Bartlett, TN</span>
+                <span css={classes.experienceLocation}>
+                  Varsity Spirit, Bartlett, TN
+                </span>
               </p>
               <p>
                 Develop custom uniform and lettering designs from customer
@@ -172,17 +200,17 @@ export default function ResumePage() {
                   pricing
                 </li>
               </ul>
-            </div>
+            </Experience>
           </div>
         </section>
-        <section className='panel panel-default'>
-          <div className='panel-heading'>
+        <section className="panel panel-default">
+          <div className="panel-heading">
             <h2>Projects</h2>
           </div>
-          <div className='panel-body'>
+          <div className="panel-body">
             <p>
-              <span css={classes.projectTitle}>U-Shirt</span>A vector-based t-shirt
-              designer web application focused on shareability
+              <span css={classes.projectTitle}>U-Shirt</span>A vector-based
+              t-shirt designer web application focused on shareability
             </p>
             <p>
               <span css={classes.projectTitle}>Lettering Automation</span>
@@ -190,8 +218,8 @@ export default function ResumePage() {
               order details
             </p>
             <p>
-              <span css={classes.projectTitle}>Reporting Tool</span>A tool to easily
-              get order information and manage custom reports
+              <span css={classes.projectTitle}>Reporting Tool</span>A tool to
+              easily get order information and manage custom reports
             </p>
             <p>
               <span css={classes.projectTitle}>Particle System</span>A simple
@@ -215,11 +243,11 @@ export default function ResumePage() {
             </p>
           </div>
         </section>
-        <section className='panel panel-default'>
-          <div className='panel-heading'>
+        <section className="panel panel-default">
+          <div className="panel-heading">
             <h2>Technologies</h2>
           </div>
-          <div className='panel-body'>
+          <div className="panel-body">
             <h3>Languages</h3>
             <p>Proficient with: JavasScript, Python, SQL, HTML/CSS, C#</p>
             <p>Familiar with Regular Expressions, Git, VBA, Java</p>
@@ -230,11 +258,11 @@ export default function ResumePage() {
             <p>CorelDRAW, Excel</p>
           </div>
         </section>
-        <section className='panel panel-default'>
-          <div className='panel-heading'>
+        <section className="panel panel-default">
+          <div className="panel-heading">
             <h2>Technical Skills</h2>
           </div>
-          <div className='panel-body'>
+          <div className="panel-body">
             <ul css={classes.skills}>
               <li>Proficient with Windows</li>
               <li>Familiar with Linux</li>
@@ -248,11 +276,11 @@ export default function ResumePage() {
             </ul>
           </div>
         </section>
-        <section className='panel panel-default'>
-          <div className='panel-heading'>
+        <section className="panel panel-default">
+          <div className="panel-heading">
             <h2>Education</h2>
           </div>
-          <div className='panel-body'>
+          <div className="panel-body">
             <div>
               <h4>Nashville Software School, Nashville, TN</h4>
               <p>Apprentice Software Developer</p>
