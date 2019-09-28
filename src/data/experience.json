@@ -1,0 +1,60 @@
+[
+  {
+    "title": "Apprentice Software Developer",
+    "dates": "April 2016 – Present",
+    "location": "Nashville Software School, Nashville, TN",
+    "summary": "Full time bootcamp program focusing on full-stack web development and modern solution design with daily hands on application in individual and group projects.",
+    "highlights": [
+      "Single-page web application development utilizing HTML5, CSS3, JavaScript, AngularJS, Bootstrap, and SASS",
+      "RESTful and direct database access with Firebase",
+      "Version Control with Git for individual and group project organization",
+      "Test Driven Develpoment with Python's unittest framework",
+      "Development of RESTful APIs within in the Django rest framework"
+    ]
+  },
+  {
+    "title": "Programmer / Project Manager of Programming",
+    "dates": "January 2015 – Present",
+    "location": "Varsity Spirit, Bartlett, TN",
+    "summary": "Managing and designing new software and designs for productivity and usability improvements.",
+    "highlights": [
+      "Designed and implemented an ongoing automation system for building artwork from SQL queried order data with C# and CorelDraw VBA",
+      "Developed a C# application querying an AS400 database for easy retrieval of order details and managing custom reports"
+    ]
+  },
+  {
+    "title": "Senior Artist",
+    "dates": "July 2012 – December 2014",
+    "location": "Varsity Spirit, Bartlett, TN",
+    "summary": "Lead production of artwork creation and find solutions to discovered problem points.",
+    "highlights": [
+      "Created a configurable script in CorelDraw to automate the conversion of files",
+      "Wrote a VBA macro in Excel to organize emailed reports",
+      "Wrote isolated VBA macros for automating artwork construction",
+      "Digitized artwork for production",
+      "Developed new fonts from newly designed style alphabets",
+      "Set up templates for new styles"
+    ]
+  },
+  {
+    "title": "Customer Service Representative",
+    "dates": "July 2011 – June 2012",
+    "location": "Asentinel, Memphis, TN",
+    "summary": "Provide to support for users of managed application.",
+    "highlights": [
+      "Built a database in Access to automate a significant amount of manual data tracking",
+      "Provided error checking and data entry for failed automatic invoice balancing"
+    ]
+  },
+  {
+    "title": "Graphic Artist",
+    "dates": "March 2009 – June 2011",
+    "location": "Varsity Spirit, Bartlett, TN",
+    "summary": "Develop custom uniform and lettering designs from customer ideas.",
+    "highlights": [
+      "Designed uniforms and lettering based on customer input",
+      "Interpreted customer information into production desings",
+      "Wrote a tool for CorelDraw to calculate object area and pricing"
+    ]
+  }
+]
