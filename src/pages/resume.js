@@ -1,5 +1,5 @@
 import React from "react"
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import { css } from "@emotion/core"
 import { useTheme } from "emotion-theming"
 import { graphql, useStaticQuery } from "gatsby"
