@@ -110,6 +110,7 @@ export default function CssBaseline() {
           }
 
           .panel {
+            background-color: ${theme.colors.panelBackground};
             box-shadow: 0.8rem 0.8rem 0.8rem ${theme.colors.panelShadow};
           }
 

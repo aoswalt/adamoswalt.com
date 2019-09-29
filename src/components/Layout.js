@@ -61,8 +61,9 @@ export default function Layout({ children }) {
 
   const theme = {
     colors: {
+      panelBackground: "rgb(70, 73, 76)",
       panelShadow: "rgb(11, 11, 11)",
-      bodyBackground: "rgb(60, 63, 66)",
+      bodyBackground: "rgb(40, 43, 46)",
       bodyText: "white",
       link: "rgb(100, 138, 235)",
     },
