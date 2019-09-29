@@ -9,7 +9,7 @@ function DocumentLink({ href }) {
 
   return (
     <a href={href}>
-      <ng-include
+      <img
         css={css`
           & svg {
             fill: ${theme.colors.link};
@@ -60,6 +60,24 @@ function Experience({ children, experience }) {
   )
 }
 
+function Project({ project }) {
+  const { title, shortDescription } = project
+
+  return (
+    <p>
+      <span
+        css={css`
+          font-weight: bold;
+          margin-right: 2rem;
+        `}
+      >
+        {title}
+      </span>
+      {shortDescription}
+    </p>
+  )
+}
+
 export default function ResumePage() {
   const classes = {
     projectTitle: css`
@@ -73,8 +91,8 @@ export default function ResumePage() {
     `,
   }
 
-  const experienceData = useStaticQuery(graphql`
-    query experience {
+  const resumeData = useStaticQuery(graphql`
+    query resume {
       allExperienceJson {
         nodes {
           title
@@ -82,6 +100,12 @@ export default function ResumePage() {
           location
           summary
           highlights
+        }
+      }
+      allProjectsJson {
+        nodes {
+          title
+          shortDescription
         }
       }
     }
@@ -99,7 +123,7 @@ export default function ResumePage() {
             <h2>Experience</h2>
           </div>
           <div className="panel-body">
-            {experienceData.allExperienceJson.nodes.map(e => (
+            {resumeData.allExperienceJson.nodes.map(e => (
               <Experience experience={e} />
             ))}
           </div>
@@ -109,39 +133,9 @@ export default function ResumePage() {
             <h2>Projects</h2>
           </div>
           <div className="panel-body">
-            <p>
-              <span css={classes.projectTitle}>U-Shirt</span>A vector-based
-              t-shirt designer web application focused on shareability
-            </p>
-            <p>
-              <span css={classes.projectTitle}>Lettering Automation</span>
-              Automation of the creation of artwork through templates based on
-              order details
-            </p>
-            <p>
-              <span css={classes.projectTitle}>Reporting Tool</span>A tool to
-              easily get order information and manage custom reports
-            </p>
-            <p>
-              <span css={classes.projectTitle}>Particle System</span>A simple
-              particle system influenced by gravity built using only native Java
-              libraries
-            </p>
-            <p>
-              <span css={classes.projectTitle}>Path Builder</span>A configurable
-              program to get file paths from inconsistent file structure based
-              on order details
-            </p>
-            <p>
-              <span css={classes.projectTitle}>Automated Exporter</span>
-              Using CorelDraw VBA, automated the processing and exporting of
-              inconsistent files
-            </p>
-            <p>
-              <span css={classes.projectTitle}>Account Database</span>
-              Built Access database to fit into office workflow and provide aid
-              through automation
-            </p>
+            {resumeData.allProjectsJson.nodes.map(p => (
+              <Project project={p} />
+            ))}
           </div>
         </section>
         <section className="panel panel-default">
@@ -175,26 +169,6 @@ export default function ResumePage() {
               <li>Basic knowledge of Illustrator</li>
               <li>Familiar with Blender</li>
             </ul>
-          </div>
-        </section>
-        <section className="panel panel-default">
-          <div className="panel-heading">
-            <h2>Education</h2>
-          </div>
-          <div className="panel-body">
-            <div>
-              <h4>Nashville Software School, Nashville, TN</h4>
-              <p>Apprentice Software Developer</p>
-            </div>
-            <br />
-            <div>
-              <h4>ITT Technical Institute, Cordova, TN</h4>
-              <p>
-                Associate of Applied Science Degree in Information Technology –
-                Multimedia
-              </p>
-              <p>Valedictorian GPA: 3.97</p>
-            </div>
           </div>
         </section>
       </div>
