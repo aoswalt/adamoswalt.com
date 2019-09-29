@@ -3,6 +3,7 @@ import Layout from "../components/Layout"
 import Panel from "../components/Panel"
 import { graphql, useStaticQuery } from "gatsby"
 import { css } from "@emotion/core"
+import Img from "gatsby-image"
 
 /*
 Need to implement modal for projects
@@ -42,43 +43,55 @@ function Project({ project }) {
     live: css`
       font-weight: bold;
     `,
+    container: css`
+      display: flex;
+    `,
     thumb: css`
       cursor: pointer;
+      margin-right: 1rem;
 
       &:hover {
         border: 4px solid $link-color;
       }
     `,
+    description: css`
+      flex: 1;
+    `,
+    footer: css`
+      display: flex;
+      justify-content: space-between;
+    `,
   }
 
   return (
     <Panel heading={project.title}>
-      <div className="media-left">
-        <img
-          className="thumb media-object"
+      <div css={classes.container}>
+        <Img
           css={classes.thumb}
-          height="150px"
-          ng-click="projects.openModal('images/' + project.image)"
-          src="images/thumbs/{{project.image}}"
-          width="250px"
+          // ng-click="projects.openModal('images/' + project.image)"
+          fixed={project.thumbnail.childImageSharp.fixed}
           alt="tmp"
         />
-      </div>
-      <div className="media-body">
-        <p>
-          <span css={classes.techLabel}>Technologies</span>
-          {project.technologies}
-        </p>
-        <p>{project.description}</p>
-        <p>
-          <span css={classes.source}>
-            <a href={project.sourceUrl}>Source Code</a>
-          </span>
-          <span css={classes.live} ng-show="project.liveUrl">
-            <a href={project.liveUrl}>Live</a>
-          </span>
-          <span className="pull-right">Last Update: {project.lastUpdate}</span>
-        </p>
+        <div css={classes.description}>
+          <p>
+            <span css={classes.techLabel}>Technologies</span>
+            {project.technologies}
+          </p>
+          <p>{project.description}</p>
+          <p css={classes.footer}>
+            <span>
+              <a css={classes.source} href={project.sourceUrl}>
+                Source Code
+              </a>
+              {project.liveUrl && (
+                <a css={classes.live} href={project.liveUrl}>
+                  Live
+                </a>
+              )}
+            </span>
+            <span>Last Update: {project.lastUpdate}</span>
+          </p>
+        </div>
       </div>
     </Panel>
   )
@@ -93,6 +106,22 @@ export default function ProjectsPage() {
           lastUpdate
           liveUrl
           sourceUrl
+          description
+          technologies
+          thumbnail {
+            childImageSharp {
+              fixed(width: 250, height: 150) {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
+          image {
+            childImageSharp {
+              fixed {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
         }
       }
     }
