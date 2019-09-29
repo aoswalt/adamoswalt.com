@@ -1,5 +1,6 @@
 import React from "react"
 import Layout from "../components/Layout"
+import Panel from "../components/Panel"
 import { css } from "@emotion/core"
 import { useTheme } from "emotion-theming"
 import { graphql, useStaticQuery } from "gatsby"
@@ -29,7 +30,7 @@ function Experience({ children, experience }) {
     experience: css`
       &:not(:last-of-type) {
         border-bottom: 1px solid ${theme.colors.bodyBackground};
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
         padding-bottom: 1rem;
       }
     `,
@@ -118,59 +119,39 @@ export default function ResumePage() {
           Résumé
           <DocumentLink href="adam_oswalt-resume.pdf" />
         </h1>
-        <section className="panel panel-default">
-          <div className="panel-heading">
-            <h2>Experience</h2>
-          </div>
-          <div className="panel-body">
-            {resumeData.allExperienceJson.nodes.map(e => (
-              <Experience experience={e} />
-            ))}
-          </div>
-        </section>
-        <section className="panel panel-default">
-          <div className="panel-heading">
-            <h2>Projects</h2>
-          </div>
-          <div className="panel-body">
-            {resumeData.allProjectsJson.nodes.map(p => (
-              <Project project={p} />
-            ))}
-          </div>
-        </section>
-        <section className="panel panel-default">
-          <div className="panel-heading">
-            <h2>Technologies</h2>
-          </div>
-          <div className="panel-body">
-            <h3>Languages</h3>
-            <p>Proficient with: JavasScript, Python, SQL, HTML/CSS, C#</p>
-            <p>Familiar with Regular Expressions, Git, VBA, Java</p>
-            <p>Basic knowledge of Bash, C/C++, PHP</p>
-            <h3>Frameworks</h3>
-            <p>AngularJS, SASS, Bootstrap, Django, Django Rest Framework</p>
-            <h3>Software</h3>
-            <p>CorelDRAW, Excel</p>
-          </div>
-        </section>
-        <section className="panel panel-default">
-          <div className="panel-heading">
-            <h2>Technical Skills</h2>
-          </div>
-          <div className="panel-body">
-            <ul css={classes.skills}>
-              <li>Proficient with Windows</li>
-              <li>Familiar with Linux</li>
-              <li>Built multiple personal computers</li>
-              <li>Performed basic laptop repair</li>
-              <li>Proficient with Microsoft Office Suite</li>
-              <li>Proficient with CorelDraw</li>
-              <li>Familiar with Photoshop</li>
-              <li>Basic knowledge of Illustrator</li>
-              <li>Familiar with Blender</li>
-            </ul>
-          </div>
-        </section>
+        <Panel heading="Experience">
+          {resumeData.allExperienceJson.nodes.map(e => (
+            <Experience experience={e} />
+          ))}
+        </Panel>
+        <Panel heading="Projects">
+          {resumeData.allProjectsJson.nodes.map(p => (
+            <Project project={p} />
+          ))}
+        </Panel>
+        <Panel heading="Technologies">
+          <h3>Languages</h3>
+          <p>Proficient with: JavasScript, Python, SQL, HTML/CSS, C#</p>
+          <p>Familiar with Regular Expressions, Git, VBA, Java</p>
+          <p>Basic knowledge of Bash, C/C++, PHP</p>
+          <h3>Frameworks</h3>
+          <p>AngularJS, SASS, Bootstrap, Django, Django Rest Framework</p>
+          <h3>Software</h3>
+          <p>CorelDRAW, Excel</p>
+        </Panel>
+        <Panel heading="Technical Skills">
+          <ul css={classes.skills}>
+            <li>Proficient with Windows</li>
+            <li>Familiar with Linux</li>
+            <li>Built multiple personal computers</li>
+            <li>Performed basic laptop repair</li>
+            <li>Proficient with Microsoft Office Suite</li>
+            <li>Proficient with CorelDraw</li>
+            <li>Familiar with Photoshop</li>
+            <li>Basic knowledge of Illustrator</li>
+            <li>Familiar with Blender</li>
+          </ul>
+        </Panel>
       </div>
     </Layout>
   )
