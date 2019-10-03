@@ -2,8 +2,22 @@ import React from "react"
 import Layout from "../components/Layout"
 import Panel from "../components/Panel"
 import { css } from "@emotion/core"
+import Img from "gatsby-image"
+import { graphql, useStaticQuery } from "gatsby"
 
 export default function AboutPage() {
+  const data = useStaticQuery(graphql`
+    query {
+      headshotImage: file(relativePath: { eq: "me_fb.jpg" }) {
+        childImageSharp {
+          fixed(width: 300, height: 300) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <Layout>
       <h1>About Me</h1>
@@ -11,17 +25,16 @@ export default function AboutPage() {
         <p>I am a guy who makes computer things and solves problems.</p>
       </Panel>
       <Panel heading="The Long">
-        <img
+        <Img
           alt="My Headshot"
-          className="headshot pull-left"
           css={css`
-            margin-bottom: 2rem;
-            margin-right: 2rem;
-            margin-top: 1rem;
+            margin-bottom: 1rem;
+            margin-right: 1rem;
             max-height: 15rem;
             max-width: 15rem;
+            float: left;
           `}
-          src="images/me_fb.jpg"
+          fixed={data.headshotImage.childImageSharp.fixed}
         />
         <p>
           Hello! My name is Adam Oswalt, and I love all things related to
