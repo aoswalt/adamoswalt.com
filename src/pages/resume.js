@@ -4,20 +4,19 @@ import Panel from "../components/Panel"
 import { css } from "@emotion/core"
 import { useTheme } from "emotion-theming"
 import { graphql, useStaticQuery } from "gatsby"
+import Doc from "../images/document.svg"
 
 function DocumentLink({ href }) {
   const theme = useTheme()
 
   return (
     <a href={href}>
-      <img
+      <Doc
         css={css`
-          & svg {
-            fill: ${theme.colors.link};
-            height: 2rem;
-          }
+          fill: ${theme.colors.link};
+          margin-left: 1rem;
+          padding-top: .1rem;
         `}
-        src="images/document.svg"
       />
     </a>
   )
@@ -54,7 +53,7 @@ function Experience({ children, experience }) {
       <p>{summary} </p>
       <ul>
         {highlights.map(h => (
-          <li>{h}</li>
+          <li key={h}>{h}</li>
         ))}
       </ul>
     </div>
@@ -109,6 +108,9 @@ export default function ResumePage() {
           shortDescription
         }
       }
+      resumePdf: file(relativePath: { eq: "adam_oswalt-resume.pdf" }) {
+        publicURL
+      }
     }
   `)
 
@@ -117,7 +119,7 @@ export default function ResumePage() {
       <div className="container">
         <h1>
           Résumé
-          <DocumentLink href="adam_oswalt-resume.pdf" />
+          <DocumentLink href={resumeData.resumePdf.publicURL} />
         </h1>
         <Panel heading="Experience">
           {resumeData.allExperienceJson.nodes.map(e => (

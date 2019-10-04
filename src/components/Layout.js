@@ -4,7 +4,7 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 import Header from "./Header"
 import { css } from "@emotion/core"
 import { ThemeProvider, useTheme } from "emotion-theming"
-import CssBaseline from './CssBaseline'
+import CssBaseline from "./CssBaseline"
 
 function Nav() {
   const theme = useTheme()
@@ -17,10 +17,14 @@ function Nav() {
   const navPills = css`
     display: flex;
     justify-content: center;
+    padding-bottom: 0.5rem;
   `
 
   const navLink = css`
     list-style: none;
+    padding-right: 1rem;
+    padding-left: 1rem;
+
     & a {
       color: ${theme.colors.bodyText};
       font-size: 2rem;
@@ -70,23 +74,21 @@ export default function Layout({ children }) {
   }
 
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <Nav />
-        <div
-          style={{
-            margin: `0 auto`,
-            maxWidth: 960,
-            padding: `0px 1.0875rem 1.45rem`,
-            paddingTop: 0,
-          }}
-        >
-          <main>{children}</main>
-        </div>
-      </ThemeProvider>
-    </>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Header siteTitle={data.site.siteMetadata.title} />
+      <Nav />
+      <div
+        style={{
+          margin: `0 auto`,
+          maxWidth: 960,
+          padding: `0px 1.0875rem 1.45rem`,
+          paddingTop: 0,
+        }}
+      >
+        <main>{children}</main>
+      </div>
+    </ThemeProvider>
   )
 }
 
