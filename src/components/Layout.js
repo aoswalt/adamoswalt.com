@@ -40,7 +40,7 @@ function Nav() {
     <nav css={navBar}>
       <ul css={navPills}>
         <li css={navLink}>
-          <Link to="/about">About Me</Link>
+          <Link to="/">About Me</Link>
         </li>
         <li css={navLink}>
           <Link to="/projects">Projects</Link>
