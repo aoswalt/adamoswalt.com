@@ -5,6 +5,7 @@ import { css } from "@emotion/core"
 import { useTheme } from "emotion-theming"
 import { graphql, useStaticQuery } from "gatsby"
 import Doc from "../images/document.svg"
+import SEO from '../components/SEO'
 
 function DocumentLink({ href }) {
   const theme = useTheme()
@@ -116,6 +117,7 @@ export default function ResumePage() {
 
   return (
     <Layout>
+      <SEO title='Résumé' />
       <div className="container">
         <h1>
           Résumé

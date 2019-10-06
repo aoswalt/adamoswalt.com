@@ -4,6 +4,7 @@ import Panel from "../components/Panel"
 import { graphql, useStaticQuery } from "gatsby"
 import { css } from "@emotion/core"
 import Img from "gatsby-image"
+import SEO from '../components/SEO'
 
 /*
 Need to implement modal for projects
@@ -129,6 +130,7 @@ export default function ProjectsPage() {
 
   return (
     <Layout>
+      <SEO title='Projects' />
       <div className="projects container">
         <h1>Projects</h1>
         {projectsData.allProjectsJson.nodes

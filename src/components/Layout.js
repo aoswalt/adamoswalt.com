@@ -46,7 +46,7 @@ function Nav() {
           <Link to="/projects">Projects</Link>
         </li>
         <li css={navLink}>
-          <Link to="/resume">Resume</Link>
+          <Link to="/resume">Résumé</Link>
         </li>
         <li css={navLink}>
           <Link to="/contact">Contact</Link>

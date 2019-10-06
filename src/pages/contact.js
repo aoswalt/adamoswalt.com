@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/Layout"
 import Panel from "../components/Panel"
 import { css } from "@emotion/core"
+import SEO from '../components/SEO'
 
 export default function ContactPage() {
   const contactLabel = css`
@@ -11,6 +12,7 @@ export default function ContactPage() {
 
   return (
     <Layout>
+      <SEO title='Contact' />
       <h1>Contact</h1>
       <Panel>
         <p>
