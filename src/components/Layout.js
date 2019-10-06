@@ -30,6 +30,10 @@ function Nav() {
       font-size: 2rem;
       font-weight: bold;
     }
+
+    & a:hover {
+      color: ${theme.colors.link};
+    }
   `
 
   return (
