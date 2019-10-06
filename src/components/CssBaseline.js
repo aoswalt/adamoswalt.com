@@ -100,10 +100,9 @@ export default function CssBaseline() {
             font-weight: bolder;
           }
 
-          // p,
-          // a {
-          //   font-size: 1.66rem;
-          // }
+          a {
+            color: ${theme.colors.link};
+          }
 
           a {
             text-decoration: none;
