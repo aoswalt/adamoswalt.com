@@ -10,8 +10,9 @@ function Nav() {
   const theme = useTheme()
 
   const navBar = css`
-    border-radius: 0;
+    background: rgb(30, 45, 80);
     box-shadow: 0 0.8rem 0.8rem ${theme.colors.panelShadow};
+    padding-top: .25rem;
   `
 
   const navPills = css`
@@ -80,7 +81,7 @@ export default function Layout({ children }) {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Header siteTitle={data.site.siteMetadata.title} />
+      {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
       <Nav />
       <div
         style={{
