@@ -48,12 +48,12 @@ function Project({ project }) {
       display: flex;
     `,
     thumb: css`
-      cursor: pointer;
+      // cursor: pointer;
       margin-right: 1rem;
 
-      &:hover {
-        border: 4px solid $link-color;
-      }
+      // &:hover {
+      //   border: 4px solid $link-color;
+      // }
     `,
     description: css`
       flex: 1;
