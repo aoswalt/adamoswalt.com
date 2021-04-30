@@ -6,7 +6,7 @@ COPY package.json package-lock.json ./
 
 RUN npm install
 
-COPY gatsby* .
+COPY gatsby* ./
 
 COPY src/ src/
 
