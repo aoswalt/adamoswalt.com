@@ -1,4 +1,4 @@
-FROM node AS build
+FROM node:14.12.0-buster-slim AS build
 
 WORKDIR /app
 
@@ -6,7 +6,9 @@ COPY package.json package-lock.json ./
 
 RUN npm install
 
-COPY . .
+COPY gatsby* .
+
+COPY src/ src/
 
 RUN npm run build
 

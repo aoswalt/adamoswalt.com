@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "../components/Layout"
 import Panel from "../components/Panel"
 import { graphql, useStaticQuery } from "gatsby"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 import Img from "gatsby-image"
 import SEO from '../components/SEO'
 
@@ -134,7 +134,6 @@ export default function ProjectsPage() {
       <div className="projects container">
         <h1>Projects</h1>
         {projectsData.allProjectsJson.nodes
-          .map(d => console.log(d) || d)
           .sort((p1, p2) => p2.lastUpdate?.localeCompare(p1.lastUpdate))
           .map(p => (
             <Project project={p} />

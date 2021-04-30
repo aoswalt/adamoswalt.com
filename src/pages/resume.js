@@ -1,8 +1,7 @@
 import React from "react"
 import Layout from "../components/Layout"
 import Panel from "../components/Panel"
-import { css } from "@emotion/core"
-import { useTheme } from "emotion-theming"
+import { css, useTheme } from "@emotion/react"
 import { graphql, useStaticQuery } from "gatsby"
 import Doc from "../images/document.svg"
 import SEO from '../components/SEO'
@@ -80,18 +79,6 @@ function Project({ project }) {
 }
 
 export default function ResumePage() {
-  const classes = {
-    projectTitle: css`
-      font-weight: bold;
-      margin-right: 2rem;
-    `,
-    skills: css`
-      & li {
-        font-size: 1.75rem;
-      }
-    `,
-  }
-
   const resumeData = useStaticQuery(graphql`
     query resume {
       allExperienceJson {

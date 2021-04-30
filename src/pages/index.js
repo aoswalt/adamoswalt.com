@@ -1,7 +1,7 @@
 import React from "react"
 import Layout from "../components/Layout"
 import Panel from "../components/Panel"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 import Img from "gatsby-image"
 import { graphql, useStaticQuery } from "gatsby"
 import SEO from '../components/SEO'

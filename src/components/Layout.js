@@ -2,8 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import Header from "./Header"
-import { css } from "@emotion/core"
-import { ThemeProvider, useTheme } from "emotion-theming"
+import { ThemeProvider, css, useTheme } from "@emotion/react"
 import CssBaseline from "./CssBaseline"
 
 function Nav() {
