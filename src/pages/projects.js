@@ -3,7 +3,7 @@ import Layout from "../components/Layout"
 import Panel from "../components/Panel"
 import { graphql, useStaticQuery } from "gatsby"
 import { css } from "@emotion/react"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image";
 import SEO from '../components/SEO'
 
 /*
@@ -67,12 +67,10 @@ function Project({ project }) {
   return (
     <Panel heading={project.title}>
       <div css={classes.container}>
-        <Img
+        <GatsbyImage
+          image={project.thumbnail.childImageSharp.gatsbyImageData}
           css={classes.thumb}
-          // ng-click="projects.openModal('images/' + project.image)"
-          fixed={project.thumbnail.childImageSharp.fixed}
-          alt="tmp"
-        />
+          alt="tmp" />
         <div css={classes.description}>
           <p>
             <span css={classes.techLabel}>Technologies</span>
@@ -95,38 +93,33 @@ function Project({ project }) {
         </div>
       </div>
     </Panel>
-  )
+  );
 }
 
 export default function ProjectsPage() {
-  const projectsData = useStaticQuery(graphql`
-    query projects {
-      allProjectsJson {
-        nodes {
-          title
-          lastUpdate
-          liveUrl
-          sourceUrl
-          description
-          technologies
-          thumbnail {
-            childImageSharp {
-              fixed(width: 250, height: 150) {
-                ...GatsbyImageSharpFixed
-              }
-            }
-          }
-          image {
-            childImageSharp {
-              fixed {
-                ...GatsbyImageSharpFixed
-              }
-            }
-          }
+  const projectsData = useStaticQuery(graphql`query projects {
+  allProjectsJson {
+    nodes {
+      title
+      lastUpdate
+      liveUrl
+      sourceUrl
+      description
+      technologies
+      thumbnail {
+        childImageSharp {
+          gatsbyImageData(width: 250, height: 150, layout: FIXED)
+        }
+      }
+      image {
+        childImageSharp {
+          gatsbyImageData(layout: FIXED)
         }
       }
     }
-  `)
+  }
+}
+`)
 
   return (
     <Layout>

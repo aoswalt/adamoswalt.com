@@ -20,8 +20,9 @@ module.exports = {
         path: `${__dirname}/src/files`,
       },
     },
-    `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

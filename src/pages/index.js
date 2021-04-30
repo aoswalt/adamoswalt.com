@@ -2,22 +2,19 @@ import React from "react"
 import Layout from "../components/Layout"
 import Panel from "../components/Panel"
 import { css } from "@emotion/react"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image";
 import { graphql, useStaticQuery } from "gatsby"
 import SEO from '../components/SEO'
 
 export default function AboutPage() {
-  const data = useStaticQuery(graphql`
-    query {
-      headshotImage: file(relativePath: { eq: "me_fb.jpg" }) {
-        childImageSharp {
-          fixed(width: 300, height: 300) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
+  const data = useStaticQuery(graphql`{
+  headshotImage: file(relativePath: {eq: "me_fb.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(width: 300, height: 300, layout: FIXED)
     }
-  `)
+  }
+}
+`)
 
   return (
     <Layout>
@@ -27,7 +24,8 @@ export default function AboutPage() {
         <p>I am a guy who makes computer things and solves problems.</p>
       </Panel>
       <Panel heading="The Long">
-        <Img
+        <GatsbyImage
+          image={data.headshotImage.childImageSharp.gatsbyImageData}
           alt="My Headshot"
           css={css`
             margin-bottom: 1rem;
@@ -35,9 +33,7 @@ export default function AboutPage() {
             max-height: 15rem;
             max-width: 15rem;
             float: left;
-          `}
-          fixed={data.headshotImage.childImageSharp.fixed}
-        />
+          `} />
         <p>
           Hello! My name is Adam Oswalt, and I love all things related to
           technology and computers. One of my greatest strengths is thinking
@@ -72,5 +68,5 @@ export default function AboutPage() {
         </p>
       </Panel>
     </Layout>
-  )
+  );
 }
