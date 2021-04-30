@@ -15,6 +15,8 @@ FROM nginx:alpine
 
 COPY --from=build --chown=nginx:nginx /app/public /usr/share/nginx/html
 
+COPY ./nginx.conf /etc/nginx/conf.d/
+
 EXPOSE 80
 
 HEALTHCHECK CMD ['wget', '-q', 'localhost:80']
