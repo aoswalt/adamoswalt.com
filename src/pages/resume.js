@@ -135,26 +135,12 @@ export default function ResumePage() {
         </Panel>
         <Panel heading="Technologies">
           <h3>Languages</h3>
-          <p>Proficient with: JavasScript, Python, SQL, HTML/CSS, C#</p>
-          <p>Familiar with Regular Expressions, Git, VBA, Java</p>
-          <p>Basic knowledge of Bash, C/C++, PHP</p>
+          <p>Proficient with: Elixir, Javascript, SQL, HTML/CSS, Regular Expressions, Bash</p>
+          <p>Familiar with: Git, Rust, Lua, VBA, C#, Java</p>
           <h3>Frameworks</h3>
-          <p>AngularJS, SASS, Bootstrap, Django, Django Rest Framework</p>
+          <p>Phoenix, ReactJS</p>
           <h3>Software</h3>
           <p>CorelDRAW, Excel</p>
-        </Panel>
-        <Panel heading="Technical Skills">
-          <ul css={classes.skills}>
-            <li>Proficient with Windows</li>
-            <li>Familiar with Linux</li>
-            <li>Built multiple personal computers</li>
-            <li>Performed basic laptop repair</li>
-            <li>Proficient with Microsoft Office Suite</li>
-            <li>Proficient with CorelDraw</li>
-            <li>Familiar with Photoshop</li>
-            <li>Basic knowledge of Illustrator</li>
-            <li>Familiar with Blender</li>
-          </ul>
         </Panel>
       </div>
     </Layout>

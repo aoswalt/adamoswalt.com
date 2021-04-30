@@ -1,7 +1,20 @@
 [
   {
+    "title": "Senior Developer",
+    "dates": "December 2016 – Current",
+    "location": "Aspire Healthcare, Nashville, TN",
+    "summary": "Lead development of EMR growth into new areas of business and patient growth",
+    "highlights": [
+      "Rebuild of custom EMR out of CMS platform",
+      "Develop a multi-node Elixir server to serve the client and job workloads",
+      "Bridge development and devops through developer tooling",
+      "Build a feature-rich React application facilitating a variety of user types",
+      "Work with business analysts to match development language to business terminology"
+    ]
+  },
+  {
     "title": "Apprentice Software Developer",
-    "dates": "April 2016 – Present",
+    "dates": "April 2016 – September 2016",
     "location": "Nashville Software School, Nashville, TN",
     "summary": "Full time bootcamp program focusing on full-stack web development and modern solution design with daily hands on application in individual and group projects.",
     "highlights": [
