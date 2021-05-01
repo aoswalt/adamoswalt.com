@@ -1,3 +1,12 @@
 .cache
 node_modules
 public
+/_build/
+/cover/
+/deps/
+/doc/
+/.fetch
+erl_crash.dump
+*.ez
+home-*.tar
+/priv/static/

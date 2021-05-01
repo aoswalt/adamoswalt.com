@@ -1,24 +1,39 @@
-FROM node:14.12.0-buster-slim AS build
+ARG ELIXIR_VER=1.11.4
+ARG OTP_VER=23.3.2
+ARG OS=alpine
+ARG OS_VER=3.13.3
 
-WORKDIR /app
+FROM hexpm/elixir:${ELIXIR_VER}-erlang-${OTP_VER}-${OS}-${OS_VER} AS builder
 
-COPY package.json package-lock.json ./
+RUN apk update && \
+  apk add --no-cache --update \
+    git && \
+  mix local.rebar --force && \
+  mix local.hex --force
 
-RUN npm install
+WORKDIR /opt/app
 
-COPY gatsby* ./
+COPY mix.exs mix.lock ./
 
-COPY src/ src/
+ARG MIX_ENV=prod
+ENV MIX_ENV=${MIX_ENV}
 
-RUN npm run build
+RUN mix do deps.get, deps.compile
+
+COPY . .
+
+RUN mix compile && mix phx.digest assets -o priv/static
+
+RUN mix release && \
+  mv _build/${MIX_ENV}/rel/home /opt/release
 
 
-FROM nginx:alpine
+FROM ${OS}:${OS_VER}
 
-COPY --from=build --chown=nginx:nginx /app/public /usr/share/nginx/html
+RUN apk add --no-cache ncurses-libs
 
-COPY ./nginx.conf /etc/nginx/conf.d/
+WORKDIR /opt/app
 
-EXPOSE 80
+COPY --from=builder /opt/release .
 
-HEALTHCHECK CMD ['wget', '-q', 'localhost:80']
+CMD ["/opt/app/bin/home", "start"]

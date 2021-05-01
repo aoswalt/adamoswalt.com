@@ -1,0 +1,2 @@
+<h1>Projects</h1>
+<%= render_many Home.Project.read!(), @view_module, "project.html", as: :project, conn: @conn %>

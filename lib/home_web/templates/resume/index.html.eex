@@ -1,0 +1,27 @@
+<div className="container">
+  <h1>Résumé <a href="<%= Routes.static_path(@conn, "/files/adam_oswalt-resume.pdf") %>"><%= svg_icon(@conn, "document") %></a></h1>
+  <div class="panel">
+    <h1>Experience</h1>
+    <div>
+      <%= render_many Home.Experience.read!(), @view_module, "experience.html", as: :experience %>
+    </div>
+  </div>
+  <div class="panel">
+    <h1>Projects</h1>
+    <div>
+      <%= render_many Home.Project.read!(), @view_module, "project.html", as: :project %>
+    </div>
+  </div>
+  <div class="panel">
+    <h1>Technologies</h1>
+    <div>
+      <h3>Languages</h3>
+      <p>Proficient with: Elixir, Javascript, SQL, HTML/CSS, Regular Expressions, Bash</p>
+      <p>Familiar with: Git, Rust, Lua, VBA, C#, Java</p>
+      <h3>Frameworks</h3>
+      <p>Phoenix, ReactJS</p>
+      <h3>Software</h3>
+      <p>CorelDRAW, Excel</p>
+    </div>
+  </div>
+</div>

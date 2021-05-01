@@ -1,0 +1,13 @@
+<div class="experience">
+  <h1><%= @experience.title %></h1>
+  <p class="geo">
+    <%= @experience.dates %>
+    <span class="location"><%= @experience.location %></span>
+  </p>
+  <p><%= @experience.summary %></p>
+  <ul>
+    <%= for h <- @experience.highlights do %>
+      <li><%= h %></li>
+    <% end %>
+  </ul>
+</div>

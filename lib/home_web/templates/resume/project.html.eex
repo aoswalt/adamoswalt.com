@@ -1,0 +1,6 @@
+<p>
+  <span class="project-title">
+    <%= @project.title %>
+  </span>
+  <%= @project.short_description %>
+</p>

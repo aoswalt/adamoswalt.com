@@ -1,0 +1,31 @@
+<section class="panel project">
+  <h1><%= @project.title %></h1>
+  <div class="container">
+    <img src="<%= Routes.static_path(@conn, @project.thumbnail) %>"
+      class="thumb"
+      width="250px"
+      height="150px"
+      alt="thumbnail" />
+    <div class="description">
+      <p>
+        <span class="tech-label">Technologies</span>
+        <%= @project.technologies %>
+      </p>
+      <p><%= @project.description %></p>
+      <p class="footer">
+        <span>
+          <a class="source" href="<%= @project.source_url %>">
+            Source Code
+          </a>
+          <%= if @project.live_url do %>
+            <a class="live" href="<%= @project.live_url %>">
+              Live
+            </a>
+          <% end %>
+        </span>
+        <span>Last Update: <%= @project.last_update %></span>
+      </p>
+    </div>
+  </div>
+</section>
+

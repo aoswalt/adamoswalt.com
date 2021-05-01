@@ -1,0 +1,51 @@
+html {
+  font-family: "Helvetica", sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: white;
+  background-color: rgb(40, 43, 46);
+
+  "@media print": {
+    color: black;
+    background-color: white;
+  }
+}
+
+h1 {
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  position: relative;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0.25rem;
+}
+
+strong,
+b {
+  font-weight: bolder;
+}
+
+a {
+  color: rgb(100, 138, 235);
+}
+
+a {
+  text-decoration: none;
+}

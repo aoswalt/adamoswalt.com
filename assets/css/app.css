@@ -1,0 +1,126 @@
+@import "./baseline.css";
+
+.nav-bar {
+  background: rgb(30, 45, 80);
+  box-shadow: 0 0.8rem 0.8rem rgb(11, 11, 11);
+  padding-top: 0.25rem;
+}
+
+.nav-bar ul {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 0.5rem;
+}
+
+.nav-bar li {
+  list-style: none;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.nav-bar a {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.nav-bar a:hover {
+  color: rgb(100, 138, 235);
+}
+
+.panel {
+  background-color: rgb(70, 73, 76);
+  box-shadow: 0.8rem 0.8rem 0.8rem rgb(11, 11, 11);
+  margin-bottom: 2rem;
+}
+
+.panel > h1 {
+  padding: 1rem 0.5rem 0.5rem 0.5rem;
+  text-align: left;
+}
+
+.panel > div {
+  padding: 0 1rem 1rem 1rem;
+}
+
+.contact-label {
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+.experience {
+}
+
+.experience .geo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.experience:not(:last-of-type) {
+  border-bottom: 1px solid rgb(40, 43, 46);
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+}
+
+.experience h1 {
+  font-size: 120%;
+  font-weight: bold;
+  text-align: left;
+}
+
+.experience .location {
+  text-align: right;
+}
+
+.project-title {
+  font-weight: bold;
+  margin-right: 2rem;
+}
+
+.project .container {
+  display: flex;
+}
+
+.project .thumb {
+  margin-right: 1rem;
+}
+
+.project .description {
+  flex: 1;
+}
+
+.project .tech-label {
+  font-weight: bold;
+}
+
+.project .tech-label::after {
+  content: ": ";
+  margin-right: 0.75rem;
+}
+
+.project .footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.project .source {
+  font-weight: bold;
+  margin-right: 1.25rem;
+}
+
+.project .live {
+  font-weight: bold;
+}
+
+main.container {
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 0px 1.0875rem 1.45rem;
+  padding-top: 0;
+}
+
+a svg {
+  fill: rgb(100, 138, 235);
+  /* margin-left: 1rem; */
+  /* padding-top: .1rem; */
+}
